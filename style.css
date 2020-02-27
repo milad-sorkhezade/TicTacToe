@@ -1,0 +1,559 @@
+@font-face
+{
+  font-family: circular;
+  src: url(circular-book.woff);
+}
+
+:root
+{
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html
+{
+    background-image: url(bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html a
+{
+  text-decoration: none;
+}
+
+#game
+{
+  width: 450px;
+  padding: 25px 50px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title
+{
+  width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.7em;
+}
+
+.f #div1
+{
+  min-width:400px;
+  padding: 5px 5px;
+}
+
+.f #div2
+{
+  top: 5px;
+  min-width: 400px;
+  padding: 5px 5px;
+}
+
+.title .f> div
+{
+  opacity: 0.7;
+  font-family: circular;
+  font-size: 0.92em;
+
+}
+
+.title .f .active
+{
+  background-color: #30803273;
+  opacity: 1;
+}
+
+.active .f > div
+{
+  opacity: 1;
+}
+
+#player1 , #player2
+{
+  border-radius: 10px;
+  color: #000;
+  font-family: circular;
+  font-size: 0.92em;
+}
+
+#result1
+{
+  position: absolute;
+  max-width: 1000px;
+  height: 190px;
+  font-size: 4.5em;
+  font-family: circular;
+  background-color: #040101d9;
+  margin: 0 auto;
+  color: #aeb2b3;
+  text-align: center;
+  z-index: 2;
+  top:300px;
+  left: 0;
+  right: 0;
+}
+
+#result2
+{
+  font-size: 1.8rem;
+  font-family: circular;
+  color: #000;
+  position: absolute;
+  font-family: circular;
+  margin: 0 auto;
+  color: #5d755d;
+  text-align: center;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 110px;
+}
+
+#result2:hover
+{
+  width:550px;
+  border-radius: 5px;
+  color: #84ff84;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+#reset
+{
+  position: relative;
+  top: 40px;
+  width: 180px;
+  height: 35px;
+  border:none;
+  border-radius: 8px;
+  background-color: #111b24a3;
+  color:#fff;
+  cursor: pointer;
+  font-family: circular;
+  margin: 0 auto;
+  padding: 8px 8px;
+  border-radius: 10px;
+  font-size: 0.92em;
+  outline: none;
+
+}
+#reset:hover
+{
+  color: #19265a;
+  background-color: rgb(215,132,88,0.5);
+  transition: 0.7s;
+}
+
+.cell
+{
+  width: 150px;
+  height: 150px;
+  background-color: #7b42205c;
+  display: inline-block;
+  float: left;
+  border: 0.5px solid #0000004f;
+  cursor: pointer;
+  font-size: 7.6em;
+  line-height: 80px;
+}
+
+.cell:hover
+{
+  background-color: #7b42207a;
+  outline: none;
+}
+
+#game .cO{color: rgb(15, 15, 64, 0.85);}
+
+#game .cX{color: rgb(121, 28, 31 , 0.8);}
+
+#cO{color: rgb(15, 15, 64, 0.85);}
+
+#cX{color: rgb(121, 28, 31 , 0.8);}
+
+.cell:disabled{cursor: default;}
+
+#cell1
+{
+  border-left: none;
+  border-top: none;
+}
+
+#cell2{border-top: none;}
+
+#cell3
+{
+  border-right: none;
+  border-top: none;
+}
+
+#cell4{border-left: none;}
+
+#cell6{border-right: none;}
+
+#cell7
+{
+  border-left: none;
+  border-bottom: none;
+}
+
+#cell8{border-bottom: none;}
+
+#cell9
+{
+  border-bottom: none;
+  border-right: none;
+}
+
+.inp
+{
+  display: block;
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px;
+  outline: none;
+  border:1px solid #146d79;
+  background-color: #13505f00;
+  border-radius: 4px;
+  color:#000;
+}
+
+#inp1{color:rgb(15, 15, 64, 0.85);}
+
+#inp2{color:rgb(121, 28, 31 , 0.8);}
+
+#btn1
+{
+  font-family: circular;
+  font-size: 0.92em;
+  display: block;
+  text-align: center;
+  border:none;
+  outline: none;
+  margin: 20px auto 0 auto;
+  width: 160px;
+  padding: 8px;
+  background-color: #000108;
+  border-radius: 8px;
+  color: #fff;
+}
+
+#btn1:hover
+{
+  color: #000;
+  background-color: rgb(51,142,177,0.3);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+#btn2
+{
+  font-family: circular;
+  font-size: 0.92em;
+  display: block;
+  text-align: center;
+  border:none;
+  outline: none;
+  margin: 5px auto 0 auto;
+  width: 130px;
+  padding: 6.5px;
+  background-color: #000108;
+  border-radius: 8px;
+  color: #fff;
+}
+
+#btn2:hover
+{
+  color: #000;
+  background-color: rgb(51,142,177,0.3);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+#container
+{
+  padding: 3% 1%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#resulttable
+{
+  font-family: circular;
+  text-align: left;
+  padding: 3% 3.5%;
+  font-size: 1.19em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #11422040;
+
+}
+
+#resulttable li:hover
+{
+  background-color: #d29919ba;
+  color: #19265a;
+  transition: 0.7s;
+  width: 1660px;
+  border-radius: 10px;
+}
+
+#resulttable li
+{
+  margin-top: 2vw;
+}
+
+#resulttable .t_title
+{
+background-color: #315363;
+font-size: 0.8em;
+width: 100%;
+border-radius: 5px;
+}
+
+#resulttable .t_title span
+{
+  padding: 0.2vw 0.1vw;
+  text-align: center;
+}
+
+#resulttable .t_title span a
+{
+  color: #b1b0b0;
+}
+
+#resulttable .t_title span:hover
+{
+  color: #000;
+  background-color: #d29919ba;
+  transition: 0.7s;
+  border-radius: 5px;
+}
+
+#resulttable .t_title span a:visited
+{
+  color: #000;
+  background-color: #000;
+  transition: 0.7s;
+}
+
+#resulttable .t_title span a:hover
+{
+  color: #000;
+  transition: 0.7s;
+}
+
+#resulttable .f_player
+{
+  width: 12vw;
+}
+
+#resulttable span
+{
+  min-width: 4vw;
+  display: inline-block;
+  text-align: center;
+}
+
+#resulttable .f_inprogress
+{
+  min-width: 7vw;
+}
+
+#resulttable .t_name
+{
+  min-width: 180px;
+}
+
+#resulttable a
+{
+  color: #000;
+  font-size: 1.3em;
+}
+
+#resulttable > li > span
+{
+  display: inline-block;
+  text-align: center;
+  padding: 0.2vw 0.1vw;
+}
+
+#resulttable .f_avg_time , #resulttable .f_avg_time_move , #resulttable  .f_avg_move_win
+{
+  text-align: center;
+  min-width: 10vw;
+}
+
+
+footer
+{
+  position: fixed;
+  left: 2%;
+  bottom: 2%;
+}
+
+footer #milad
+{
+  color: #ff5152;
+}
+
+
+#trophy
+{
+  position: relative;
+  top: 3px;
+  width: 26px;
+  height: 26px;
+  margin:0 5px;
+}
+
+#new
+{
+  color: #000;
+  margin: 0 auto;
+}
+
+#pwyn
+{
+  color: #000;
+  font-family: circular;
+  margin: 0 auto;
+  padding: 8px 8px;
+  width: 450px;
+  border-radius: 10px;
+  font-size: 0.92em;
+
+}
+#pwyn:hover
+{
+  color: #19265a;
+  background-color: rgb(215,132,88,0.5);
+  font-size: 0.99em;
+  transition: 0.7s;
+}
+#sr
+{
+  color: #fff;
+  background-color: #111b24a3;
+  font-family: circular;
+  margin: 2.5px auto;
+  padding: 8px 8px;
+  width: 250px;
+  border-radius: 10px;
+  font-size: 0.92em;
+  position: relative;
+  display: inline-block;
+  top: 60px;
+}
+
+#sr:hover
+{
+  color: #19265a;
+  background-color: rgb(215,132,88,0.5);
+  font-size: 0.95em;
+  transition: 0.7s;
+}
+
+nav
+{
+  width: max-content;
+  margin: 0 auto;
+}
+
+#tsa
+{
+  color: #fff;
+  background-color: #111b24a3;
+  font-family: circular;
+  margin: 5px 10px;
+  padding: 8px 8px;
+  width: 200px;
+  border-radius: 10px;
+   position: relative;
+  display: inline-block;
+  font-size: 0.92em;
+  text-align: center;
+  top: 30px;
+}
+
+#tsa:hover
+{
+  color: #19265a;
+  background-color: rgb(215,132,88,0.5);
+  font-size: 0.95em;
+  transition: 0.7s;
+}
+
+.return
+{
+  width: max-content;
+  margin: 0 auto;
+}
+
+#return a
+{
+  color: #fff;
+  background-color: #111b24a3;
+  font-family: circular;
+  margin: 0 auto;
+  padding: 8px 8px;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 0.92em;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  top: 40px;
+}
+
+#return a:hover
+{
+  color: #19265a;
+  background-color: rgb(215,132,88,0.5);
+  font-size: 0.95em;
+  transition: 0.7s;
+}
+
+#rank
+{
+   position: relative;
+  top: 3px;
+  width: 26px;
+  height: 26px;
+  margin:0 5px;
+}
